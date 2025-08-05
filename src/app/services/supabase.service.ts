@@ -74,4 +74,21 @@ export class SupabaseService {
 
     return images;
   }
+
+  /**
+   * Deletes an image from a bucket
+   * @param bucketName The name of the bucket
+   * @param filePath The path (filename) of the image to delete
+   * @returns Promise with delete result
+   */
+  async deleteImage(bucketName: string, filePath: string): Promise<any> {
+    const { data, error } = await this.supabase.storage
+      .from(bucketName)
+      .remove([filePath]);
+
+    if (error) {
+      throw error;
+    }
+    return data;
+  }
 }
