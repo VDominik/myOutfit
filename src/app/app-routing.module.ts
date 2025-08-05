@@ -4,6 +4,7 @@ import { InspirationsComponent } from './pages/inspirations/inspirations.compone
 import { OutfitsComponent } from './pages/outfits/outfits.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/outfits', pathMatch: 'full' },
   { path: 'outfits', component: OutfitsComponent },
   { path: 'inspirations', component: InspirationsComponent },
 ];
