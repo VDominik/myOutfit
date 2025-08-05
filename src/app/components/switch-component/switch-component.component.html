@@ -1,0 +1,16 @@
+<div class="switch-wrapper">
+  <button
+    [routerLink]="['/outfits']"
+    routerLinkActive="active"
+    [ngClass]="{ active: router.url.includes('/outfits') }"
+  >
+    My Outfits
+  </button>
+  <button
+    [routerLink]="['/inspirations']"
+    routerLinkActive="active"
+    [ngClass]="{ active: router.url.includes('/inspirations') }"
+  >
+    My Inspirations
+  </button>
+</div>

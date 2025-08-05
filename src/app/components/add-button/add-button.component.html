@@ -1,0 +1,19 @@
+<div class="add-button" (click)="openModal()">
+  <div class="icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+      <path
+        d="M256 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 160-160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l160 0 0 160c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160 160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-160 0 0-160z"
+      />
+    </svg>
+  </div>
+</div>
+
+<!-- Image upload modal -->
+<div class="modal-backdrop" *ngIf="showModal">
+  <div class="modal">
+    <h2>Upload Image</h2>
+    <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+    <button (click)="uploadImage()">Upload</button>
+    <button (click)="closeModal()">Cancel</button>
+  </div>
+</div>
