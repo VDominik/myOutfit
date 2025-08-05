@@ -42,4 +42,22 @@ export class ImagesContainerItemComponent {
     this.showModal = false;
     this.selectedImage = null;
   }
+
+  deleteImage(image: any) {
+    const bucket = this.router.url.includes('inspirations')
+      ? 'inspirations'
+      : 'outfits';
+    const filePath = `${bucket}/${image.name}`;
+
+    this.supabaseService
+      .deleteImage(bucket, filePath)
+      .then(() => {
+        // Reload images after deletion
+        this.loadImages();
+      })
+      .catch((error) => {
+        console.error('Error deleting image:', error);
+      });
+    this.closeImageModal();
+  }
 }
