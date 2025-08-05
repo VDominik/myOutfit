@@ -1,0 +1,22 @@
+<div class="image-grid">
+  <div class="image-item" *ngFor="let image of images">
+    <img
+      [src]="image.url"
+      [alt]="image.name"
+      class="image-thumb"
+      (click)="openImageModal(image)"
+    />
+  </div>
+</div>
+
+<!-- Modal for full screen image -->
+<div class="image-modal-backdrop" *ngIf="showModal" (click)="closeImageModal()">
+  <div class="image-modal" (click)="$event.stopPropagation()">
+    <img
+      [src]="selectedImage?.url"
+      [alt]="selectedImage?.name"
+      class="image-full"
+    />
+    <button class="close-btn" (click)="closeImageModal()">Close</button>
+  </div>
+</div>
